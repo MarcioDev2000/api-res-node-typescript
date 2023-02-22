@@ -1,9 +1,12 @@
 import express from 'express';
+import 'dotenv/config';
+
+import { rotas } from './routes';
 
 const servidor = express();
 
-servidor.get('/', (req, res) => {
-  return  res.send('Rota Principal');
-});
+
+servidor.use(express.json());
+servidor.use(rotas);
 
 export {servidor};
